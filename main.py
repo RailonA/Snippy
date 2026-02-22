@@ -11,8 +11,6 @@ def load_config():
     with open("config.yaml", "r") as f:
         return yaml.safe_load(f)
 
-print('Here')
-
 def main():
     config = load_config()
 
