@@ -1,0 +1,68 @@
+# =========================
+# 🐍 Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# =========================
+# 🎬 Project Specific
+# =========================
+
+# Ignore ALL input files
+input/*
+!input/.gitkeep
+
+# Ignore ALL generated clips
+output/clips/*
+!output/clips/.gitkeep
+
+# Ignore transcripts
+output/transcripts/*
+!output/transcripts/.gitkeep
+
+# Ignore rendered subtitles
+output/subtitles/*
+!output/subtitles/.gitkeep
+
+# Ignore logs
+logs/*
+!logs/.gitkeep
+
+# =========================
+# 🎥 Large Media Files (Global)
+# =========================
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+
+# =========================
+# 🖥 OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# 🧪 Testing
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# 📦 Build
+# =========================
+dist/
+build/
+*.egg-info/
