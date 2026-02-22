@@ -1,7 +1,8 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi import BackgroundTasks
+import yaml
 import shutil
 import os
 import uuid
@@ -9,6 +10,7 @@ from typing import Dict
 
 from main import process_video
 
+CONFIG_PATH = "config.yaml"
 app = FastAPI()
 
 app.add_middleware(
@@ -58,6 +60,30 @@ async def upload_video(
     background_tasks.add_task(run_job, job_id, file_path)
 
     return {"job_id": job_id}
+
+
+@app.post("/update-keywords")
+def update_keywords(new_keywords: list[str] = Body(...)):
+    """
+    Update the keyword list in config.yaml dynamically.
+    """
+    if not os.path.exists(CONFIG_PATH):
+        return {"error": "Config file not found"}
+
+    # Load existing config
+    with open(CONFIG_PATH, "r") as f:
+        config = yaml.safe_load(f)
+
+    # Update keywords
+    if "scoring" not in config:
+        config["scoring"] = {}
+    config["scoring"]["keywords"] = new_keywords
+
+    # Save back to YAML
+    with open(CONFIG_PATH, "w") as f:
+        yaml.safe_dump(config, f)
+
+    return {"message": "Keywords updated successfully", "keywords": new_keywords}
 
 
 @app.get("/status/{job_id}")
