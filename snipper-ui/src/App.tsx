@@ -116,23 +116,6 @@ function App() {
         />
       </div>
 
-      <button
-        onClick={handleUpload}
-        className="bg-blue-600 px-6 py-2 rounded mb-6 w-full max-w-xl block mx-auto hover:bg-blue-500"
-      >
-        Generate Clips
-      </button>
-
-      {/* Progress Bar */}
-      {progress > 0 && progress < 100 && (
-        <div className="w-full max-w-xl bg-gray-700 rounded-full h-4 mb-6 mx-auto">
-          <div
-            className="bg-blue-500 h-4 rounded-full transition-all"
-            style={{ width: `${progress}%` }}
-          ></div>
-        </div>
-      )}
-
       {/* Keywords Input */}
       <div className="bg-gray-800 p-4 rounded-xl mb-6 max-w-xl mx-auto w-full">
         <h2 className="font-semibold mb-2 text-white">Update Keywords</h2>
@@ -150,6 +133,23 @@ function App() {
           Save Keywords
         </button>
       </div>
+
+      <button
+        onClick={handleUpload}
+        className="bg-blue-600 px-6 py-2 rounded mb-6 w-full max-w-xl block mx-auto hover:bg-blue-500"
+      >
+        Generate Clips
+      </button>
+
+      {/* Progress Bar */}
+      {progress > 0 && progress < 100 && (
+        <div className="w-full max-w-xl bg-gray-700 rounded-full h-4 mb-6 mx-auto">
+          <div
+            className="bg-blue-500 h-4 rounded-full transition-all"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+      )}
 
       {/* Sorting Toggle */}
       <div className="flex justify-center items-center mb-6">

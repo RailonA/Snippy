@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+pydub
+pyyaml
+python-multipart

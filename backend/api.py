@@ -7,10 +7,9 @@ import shutil
 import os
 import uuid
 from typing import Dict
+from backend.main import process_video
 
-from main import process_video
-
-CONFIG_PATH = "config.yaml"
+CONFIG_PATH = "./backend/config.yaml"
 app = FastAPI()
 
 app.add_middleware(
@@ -21,9 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/output", StaticFiles(directory="output"), name="output")
-
-UPLOAD_DIR = "input"
+app.mount("/output", StaticFiles(directory="./backend/output"), name="/output")
+UPLOAD_DIR = "./backend/input"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 jobs: Dict[str, dict] = {}
