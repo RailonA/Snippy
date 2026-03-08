@@ -1,17 +1,16 @@
 clip:
+  burn_subtitles: false
   max_length: 20
   min_length: 10
   padding: 1.5
-  vertical: False
-  burn_subtitles: False
+  vertical: false
 input_video: backend/input/Cold_World_03.mp4
 output_dir: backend/output/clips
 scoring:
   keyword_boost: 1
   keywords:
-  - models
-  - dimends
-  - sward
+  - Friday
+  - Night
   min_score: 2
   question_boost: 2
 transcript_dir: backend/output/transcripts
